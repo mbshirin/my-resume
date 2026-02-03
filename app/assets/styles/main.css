@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+html,
+body {
+  background-color: #000000 !important;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+}
+
+.v-application {
+  background-color: #000000 !important;
+}
+
+.v-application__wrap {
+  background-color: #000000 !important;
+}
+
+.hero-title {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+}
+
+.magic {
+  font-style: italic;
+  font-weight: 600;
+  color: #a855f7;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+.nav {
+  font-family: "Inter", sans-serif;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 600;
+  color: #a855f7;
+}
