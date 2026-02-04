@@ -10,7 +10,8 @@
           <h1 class="hero-title" style="font-size: 7rem; line-height: 8rem; color: #ffffff;">Bringing <br> <span
               class="magic">magic</span>
             to <br> modern web</h1>
-          <v-btn append-icon="mdi-arrow-right" rounded="xl" color="black" class="custom-btn mt-5 font-weight-bold">Tell
+          <v-btn append-icon="mdi-arrow-right" href="/about" rounded="xl" color="black"
+            class="custom-btn mt-5 font-weight-bold">Tell
             me
             more</v-btn>
         </div>
@@ -175,34 +176,17 @@ onMounted(() => {
   object-fit: cover;
   animation: floatVertical 4s ease-in-out infinite;
   overflow: hidden;
+  border: 3px solid #a855f7;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.6), 0 0 60px rgba(168, 85, 247, 0.3);
+  transition: all 0.4s ease;
 }
 
-.ocean-image::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60%;
-  background: linear-gradient(to bottom, #0d2b3d 0%, #1a4a5c 50%, #0d2b3d 100%);
-  border-radius: 0 0 50% 50%;
+.ocean-image:hover {
+  transform: scale(1.05);
+  border-color: #c084fc;
+  box-shadow: 0 0 50px rgba(168, 85, 247, 0.8), 0 0 100px rgba(168, 85, 247, 0.5), 0 0 150px rgba(168, 85, 247, 0.3);
 }
 
-.ocean-image::after {
-  content: '';
-  position: absolute;
-  top: 40%;
-  left: 0;
-  right: 0;
-  height: 20%;
-  background: linear-gradient(to bottom,
-      rgba(255, 255, 255, 0.9) 0%,
-      rgba(255, 255, 255, 0.7) 30%,
-      rgba(255, 255, 255, 0.3) 60%,
-      transparent 100%);
-  border-radius: 50% 50% 0 0;
-  transform: translateY(-50%);
-}
 
 @keyframes floatVertical {
 
@@ -224,29 +208,33 @@ onMounted(() => {
 .card {
   flex: 1;
   min-height: 200px;
+  background-color: rgba(20, 20, 20, 0.8) !important;
+  border: 1px solid rgba(168, 85, 247, 0.3) !important;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: rgba(100, 100, 111, 0.35) 0px 10px 40px 0px;
+  border-color: rgba(168, 85, 247, 0.6) !important;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.4), rgba(100, 100, 111, 0.35) 0px 10px 40px 0px;
+  background-color: rgba(25, 25, 25, 0.9) !important;
 }
 
 .card-pink {
-  background-color: rgba(168, 85, 247, 0.15);
-  border: 1px solid rgba(168, 85, 247, 0.3);
+  background-color: rgba(20, 20, 20, 0.8) !important;
+  border: 1px solid rgba(168, 85, 247, 0.3) !important;
 }
 
 .card-beige {
-  background-color: rgba(168, 85, 247, 0.15);
-  border: 1px solid rgba(168, 85, 247, 0.3);
+  background-color: rgba(20, 20, 20, 0.8) !important;
+  border: 1px solid rgba(168, 85, 247, 0.3) !important;
 }
 
 .card-mint {
-  background-color: rgba(168, 85, 247, 0.15);
-  border: 1px solid rgba(168, 85, 247, 0.3);
+  background-color: rgba(20, 20, 20, 0.8) !important;
+  border: 1px solid rgba(168, 85, 247, 0.3) !important;
 }
 
 .card-title {
