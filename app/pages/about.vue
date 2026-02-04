@@ -5,7 +5,7 @@
                 <!-- Left Section: Profile -->
                 <div class="left-section d-flex flex-column">
                     <div class="profile-image-wrapper">
-                        <img src="@/assets/images/Shirin-mohebi.png" alt="Shirin Mohebbi" class="profile-image" />
+                        <img src="@/assets/images/shirin-mohebi.jpg" alt="Shirin Mohebi" class="profile-image" />
                     </div>
                     <h1 class="profile-name">Shirin Mohebi</h1>
                     <p class="profile-tagline">DREAMER. DESIGNER. DEVELOPER.</p>

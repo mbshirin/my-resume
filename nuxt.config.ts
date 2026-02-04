@@ -1,6 +1,5 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
-
   devtools: { enabled: true },
 
   css: [
@@ -18,4 +17,6 @@ export default defineNuxtConfig({
       "process.env.DEBUG": false,
     },
   },
+
+  modules: ["@nuxtjs/tailwindcss"],
 });

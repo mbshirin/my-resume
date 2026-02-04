@@ -16,7 +16,7 @@
             more</v-btn>
         </div>
         <div class="right ml-8">
-          <img src="@/assets/images/Shirin-mohebi.png" alt="Shirin-Mohebi" class="ocean-image" />
+          <img src="@/assets/images/shirin-mohebi.jpg" alt="Shirin-Mohebi" class="ocean-image" />
         </div>
       </div>
       <v-divider class="mt-10" color="white"></v-divider>
@@ -111,8 +111,7 @@ onMounted(() => {
 }
 
 .container {
-  margin-left: 10rem;
-  margin-right: 10rem;
+  padding: 0 10rem;
 }
 
 .up {

@@ -4,6 +4,7 @@
       <v-progress-circular indeterminate color="#a855f7" size="64" width="6"></v-progress-circular>
     </div>
     <div v-else>
+      <CursorTrail />
       <Header />
       <slot />
       <Footer />
@@ -14,6 +15,7 @@
 import { ref, onMounted } from 'vue'
 import Header from "@/components/layout/Header.vue";
 import Footer from "@/components/layout/Footer.vue";
+import CursorTrail from "@/components/layout/CursorTrail.vue";
 
 const loading = ref(true)
 
