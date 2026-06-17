@@ -37,12 +37,26 @@
                             <v-avatar color="primary" variant="tonal" size="48" class="mr-4 flex-shrink-0">
                                 <v-icon color="primary">{{ item.icon }}</v-icon>
                             </v-avatar>
-                            <div class="min-width-0">
+                            <div class="min-width-0 flex-grow-1">
                                 <span class="text-caption text-medium-emphasis d-block mb-1">{{ item.label }}</span>
                                 <span class="text-body-1 text-white font-weight-medium contact-value">{{ item.value }}</span>
                             </div>
+                            <v-btn
+                                v-if="item.copyable"
+                                icon
+                                variant="text"
+                                size="small"
+                                color="primary"
+                                class="copy-btn ml-auto flex-shrink-0"
+                                :aria-label="copiedLabel === item.label ? 'Email copied' : 'Copy email address'"
+                                @click.stop="copyText(item.value, item.label)"
+                            >
+                                <v-icon size="18">
+                                    {{ copiedLabel === item.label ? 'mdi-check' : 'mdi-content-copy' }}
+                                </v-icon>
+                            </v-btn>
                             <v-icon
-                                v-if="item.href"
+                                v-else-if="item.href"
                                 color="primary"
                                 size="18"
                                 class="ml-auto flex-shrink-0"
@@ -85,13 +99,14 @@ import { ref, onMounted } from 'vue'
 const CONTACT_EMAIL = 'mbshirin01@gmail.com'
 
 const showPage = ref(false)
+const copiedLabel = ref(null)
 
 const contactInfo = [
     {
         label: 'Email',
         value: CONTACT_EMAIL,
         icon: 'mdi-email-outline',
-        href: `mailto:${CONTACT_EMAIL}`,
+        copyable: true,
     },
     {
         label: 'Location',
@@ -110,8 +125,32 @@ const contactInfo = [
 const socialLinks = [
     { href: 'https://www.linkedin.com/in/mbshirin/', icon: 'mdi-linkedin' },
     { href: 'https://github.com/mbshirin', icon: 'mdi-github' },
-    { href: 'https://instagram.com', icon: 'mdi-instagram' },
 ]
+
+const copyText = async (text, label) => {
+    try {
+        await navigator.clipboard.writeText(text)
+        copiedLabel.value = label
+        setTimeout(() => {
+            if (copiedLabel.value === label) {
+                copiedLabel.value = null
+            }
+        }, 2000)
+    } catch {
+        const textarea = document.createElement('textarea')
+        textarea.value = text
+        document.body.appendChild(textarea)
+        textarea.select()
+        document.execCommand('copy')
+        document.body.removeChild(textarea)
+        copiedLabel.value = label
+        setTimeout(() => {
+            if (copiedLabel.value === label) {
+                copiedLabel.value = null
+            }
+        }, 2000)
+    }
+}
 
 onMounted(() => {
     setTimeout(() => {
@@ -203,6 +242,14 @@ onMounted(() => {
 
 .contact-value {
     word-break: break-word;
+}
+
+.copy-btn {
+    opacity: 0.85;
+}
+
+.copy-btn:hover {
+    opacity: 1;
 }
 
 .social-btn {

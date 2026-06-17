@@ -28,7 +28,6 @@
 <script setup>
 const socialLinks = [
   { href: "https://www.linkedin.com/in/mbshirin/", icon: "mdi-linkedin" },
-  { href: "https://instagram.com", icon: "mdi-instagram" },
   { href: "https://github.com/mbshirin", icon: "mdi-github" },
 ];
 </script>
