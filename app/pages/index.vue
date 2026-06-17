@@ -1,65 +1,68 @@
 <template>
   <Transition name="fade-up">
-    <div v-if="showPage" class="container mt-10 d-flex flex-column">
+    <div v-if="showPage" class="container mt-6 mt-md-10 d-flex flex-column">
       <div class="up d-flex flex-row align-center pa-2 px-4 rounded-lg">
-        <v-icon class="hero-icon">mdi-creation-outline</v-icon>
+        <v-icon class="hero-icon" color="primary">mdi-creation-outline</v-icon>
         <span class="hero">CREATIVE DESIGNER & DEVELOPER</span>
       </div>
-      <div class="down d-flex flex-row mt-5">
-        <div class="left d-flex flex-column">
-          <h1 class="hero-title" style="font-size: 7rem; line-height: 8rem; color: #ffffff;">Bringing <br> <span
-              class="magic">magic</span>
-            to <br> modern web</h1>
+
+      <div class="hero-section d-flex flex-column flex-lg-row mt-5">
+        <div class="hero-left d-flex flex-column">
+          <h1 class="hero-title hero-headline">
+            Bringing <br />
+            <span class="magic">ideas</span>
+            to life through <br /> code and design
+          </h1>
           <v-btn append-icon="mdi-arrow-right" href="/about" rounded="xl" color="black"
-            class="custom-btn mt-5 font-weight-bold">Tell
-            me
-            more</v-btn>
+            class="custom-btn mt-5 font-weight-bold">
+            Tell me more
+          </v-btn>
         </div>
-        <div class="right ml-8">
+        <div class="hero-right d-flex justify-center justify-lg-end mt-8 mt-lg-0">
           <img src="@/assets/images/shirin-mohebi.jpg" alt="Shirin-Mohebi" class="ocean-image" />
         </div>
       </div>
-      <v-divider class="mt-10" color="white"></v-divider>
-      <div class="d-flex flex-row mt-10">
-        <div class="left" style="width: 40%;">
-          <span class="quote">"Designing with <span class="magic">passion</span> makes technology feel alive."</span>
+
+      <v-divider class="mt-8 mt-md-10" color="white" />
+
+      <div class="quote-section d-flex flex-column flex-md-row mt-8 mt-md-10">
+        <div class="quote-col">
+          <span class="quote">
+            "<span class="magic">Great</span> design is not just how it looks — <br /> it's how it feels and works."
+          </span>
         </div>
-        <div class="right" style="width: 60%;">
-          <span style="color: #b0b0b0;">specialize in creating soft, meaningful digital solutions. My approach is rooted
-            in
-            warmth, ensuring that
-            every user feels cared for while navigating the interface.
-            <br>
-            I believe that aesthetics are just as important as logic. A beautiful site is a usable site.</span>
+        <div class="desc-col">
+          <span class="desc-text text-medium-emphasis">
+            I'm Shirin Mohebbi, a Frontend Developer passionate about building modern and responsive web applications.
+
+            I specialize in Vue.js and Nuxt.js, focusing on clean code, intuitive user experiences, and interfaces that
+            bring ideas to life.
+          </span>
         </div>
       </div>
-      <v-divider class="mt-10" color="white"></v-divider>
-      <div class="cards-section d-flex flex-row mt-10">
-        <v-card class="card card-pink pa-4" rounded="xl">
+
+      <v-divider class="mt-8 mt-md-10" color="white" />
+
+      <div class="cards-section d-flex flex-column flex-md-row mt-8 mt-md-10">
+        <v-card class="card pa-4" rounded="xl">
           <v-card-text class="d-flex flex-column pa-4">
-            <h3 class="card-title mb-2">Sweet Journey</h3>
-            <p class="card-description mb-6">The story behind the screen.</p>
-            <v-btn class="explore-btn align-self-start mt-auto" icon size="45" variant="flat">
-              <v-icon size="18" color="#a855f7">mdi-arrow-right</v-icon>
-            </v-btn>
+            <h3 class="card-title mb-2">My Story</h3>
+            <p class="card-description text-medium-emphasis mb-6">From curiosity to code — exploring the world of web
+              development one project at a time.</p>
           </v-card-text>
         </v-card>
-        <v-card class="card card-beige pa-4" rounded="xl">
+        <v-card class="card pa-4" rounded="xl">
           <v-card-text class="d-flex flex-column pa-4">
-            <h3 class="card-title mb-2">Craftsmanship</h3>
-            <p class="card-description mb-6">Expertise built with passion and precision.</p>
-            <v-btn class="explore-btn align-self-start mt-auto" icon size="45" variant="flat">
-              <v-icon size="18" color="#a855f7">mdi-arrow-right</v-icon>
-            </v-btn>
+            <h3 class="card-title mb-2">Skills & Expertise</h3>
+            <p class="card-description text-medium-emphasis mb-6">Building modern interfaces with Vue.js, Nuxt.js,
+              JavaScript, and responsive design principles.</p>
           </v-card-text>
         </v-card>
-        <v-card class="card card-mint pa-4" rounded="xl">
+        <v-card class="card pa-4" rounded="xl">
           <v-card-text class="d-flex flex-column pa-4">
-            <h3 class="card-title mb-2">Let's Chat</h3>
-            <p class="card-description mb-6">Available for dreams and discussions.</p>
-            <v-btn class="explore-btn align-self-start mt-auto" icon size="45" variant="flat">
-              <v-icon size="18" color="#a855f7">mdi-arrow-right</v-icon>
-            </v-btn>
+            <h3 class="card-title mb-2">Get In Touch</h3>
+            <p class="card-description text-medium-emphasis mb-6">Let's collaborate on ideas, projects, or opportunities
+              to create something meaningful.</p>
           </v-card-text>
         </v-card>
       </div>
@@ -73,15 +76,13 @@ import { ref, onMounted } from 'vue'
 const showPage = ref(false)
 
 onMounted(() => {
-  // Wait for layout loading to finish, then show page with transition
   setTimeout(() => {
     showPage.value = true
-  }, 1000) // Slightly after layout loading finishes
+  }, 1000)
 })
 </script>
 
 <style scoped>
-/* Fade Up Transition */
 .fade-up-enter-active {
   transition: all 0.6s ease-out;
 }
@@ -112,24 +113,58 @@ onMounted(() => {
 
 .container {
   padding: 0 10rem;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .up {
-  background-color: rgba(168, 85, 247, 0.1);
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  width: 29%;
+  background-color: rgba(var(--v-theme-primary), 0.1);
+  border: 1px solid rgba(var(--v-theme-primary), 0.3);
+  width: fit-content;
+  max-width: 100%;
   gap: 5px;
 }
 
 .hero {
   font-weight: bold;
-  color: #a855f7;
+  color: rgb(var(--v-theme-primary));
   letter-spacing: 3px;
   font-size: 11px;
 }
 
-.hero-icon {
-  color: #a855f7;
+.hero-section {
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-right {
+  flex: 1;
+  min-width: 0;
+  max-width: 34%;
+}
+
+.hero-headline {
+  font-size: 5rem;
+  line-height: 8rem;
+  color: #ffffff;
+}
+
+.quote-section {
+  gap: 2rem;
+}
+
+.quote-col,
+.desc-col {
+  width: 100%;
+}
+
+.desc-text {
+  line-height: 1.7;
 }
 
 .quote {
@@ -142,14 +177,15 @@ onMounted(() => {
 
 .custom-btn {
   transition: background-color 0.3s ease;
-  width: 40%;
+  width: fit-content;
+  min-width: 200px;
   background-color: #ffffff !important;
   color: #000000 !important;
   border: 1px solid #000000;
 }
 
 .custom-btn:hover {
-  background-color: #a855f7 !important;
+  background-color: rgb(var(--v-theme-primary)) !important;
   color: #ffffff !important;
 }
 
@@ -161,31 +197,21 @@ onMounted(() => {
   transform: translateX(5px);
 }
 
-.right {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .ocean-image {
-  width: 350px;
-  height: 350px;
+  aspect-ratio: 1;
   border-radius: 50%;
   object-fit: cover;
   animation: floatVertical 4s ease-in-out infinite;
-  overflow: hidden;
-  border: 3px solid #a855f7;
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.6), 0 0 60px rgba(168, 85, 247, 0.3);
+  border: 3px solid rgb(var(--v-theme-primary));
+  box-shadow: 0 0 30px rgba(var(--v-theme-primary), 0.6), 0 0 60px rgba(var(--v-theme-primary), 0.3);
   transition: all 0.4s ease;
 }
 
 .ocean-image:hover {
   transform: scale(1.05);
-  border-color: #c084fc;
-  box-shadow: 0 0 50px rgba(168, 85, 247, 0.8), 0 0 100px rgba(168, 85, 247, 0.5), 0 0 150px rgba(168, 85, 247, 0.3);
+  border-color: rgb(var(--v-theme-secondary));
+  box-shadow: 0 0 50px rgba(var(--v-theme-primary), 0.8), 0 0 100px rgba(var(--v-theme-primary), 0.5), 0 0 150px rgba(var(--v-theme-primary), 0.3);
 }
-
 
 @keyframes floatVertical {
 
@@ -208,32 +234,16 @@ onMounted(() => {
   flex: 1;
   min-height: 200px;
   background-color: rgba(20, 20, 20, 0.8) !important;
-  border: 1px solid rgba(168, 85, 247, 0.3) !important;
+  border: 1px solid rgba(var(--v-theme-primary), 0.3) !important;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  border-color: rgba(168, 85, 247, 0.6) !important;
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.4), rgba(100, 100, 111, 0.35) 0px 10px 40px 0px;
+  border-color: rgba(var(--v-theme-primary), 0.6) !important;
+  box-shadow: 0 0 30px rgba(var(--v-theme-primary), 0.4), rgba(100, 100, 111, 0.35) 0px 10px 40px 0px;
   background-color: rgba(25, 25, 25, 0.9) !important;
-}
-
-.card-pink {
-  background-color: rgba(20, 20, 20, 0.8) !important;
-  border: 1px solid rgba(168, 85, 247, 0.3) !important;
-}
-
-.card-beige {
-  background-color: rgba(20, 20, 20, 0.8) !important;
-  border: 1px solid rgba(168, 85, 247, 0.3) !important;
-}
-
-.card-mint {
-  background-color: rgba(20, 20, 20, 0.8) !important;
-  border: 1px solid rgba(168, 85, 247, 0.3) !important;
 }
 
 .card-title {
@@ -247,7 +257,6 @@ onMounted(() => {
 .card-description {
   font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
-  color: #b0b0b0;
   flex: 1;
 }
 
@@ -258,6 +267,89 @@ onMounted(() => {
 
 .explore-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 4px 12px rgba(var(--v-theme-primary), 0.4);
+}
+
+@media (max-width: 1400px) {
+  .container {
+    padding: 0 6rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 4rem;
+  }
+
+  .hero-headline {
+    font-size: 5rem;
+    line-height: 5.5rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero-headline {
+    font-size: 4rem;
+    line-height: 4.5rem;
+  }
+
+  .quote {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .hero {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .hero-headline {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+
+  .quote {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .custom-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .ocean-image {
+    max-width: 280px;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero-headline {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+
+  .quote {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .ocean-image {
+    max-width: 220px;
+  }
 }
 </style>

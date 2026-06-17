@@ -23,6 +23,7 @@ interface Props {
   colorUpdateSpeed?: number;
   backColor?: ColorRGB;
   transparent?: boolean;
+  colorOpacity?: number;
   class?: HTMLAttributes["class"];
 }
 
@@ -41,6 +42,7 @@ const props = withDefaults(defineProps<Props>(), {
   colorUpdateSpeed: 10,
   backColor: () => ({ r: 0.5, g: 0, b: 0 }),
   transparent: true,
+  colorOpacity: 0.7,
 });
 
 interface Pointer {
@@ -96,6 +98,7 @@ onMounted(() => {
     PAUSED: false,
     BACK_COLOR: props.backColor,
     TRANSPARENT: props.transparent,
+    COLOR_OPACITY: props.colorOpacity,
   };
 
   // Get WebGL context (WebGL1 or WebGL2)
@@ -1166,7 +1169,8 @@ onMounted(() => {
       gl.uniform1i(splatProgram.uniforms.uTarget, dye.read.attach(0));
     }
     if (splatProgram.uniforms.color) {
-      gl.uniform3f(splatProgram.uniforms.color, color.r, color.g, color.b);
+      const o = config.COLOR_OPACITY ?? 1;
+      gl.uniform3f(splatProgram.uniforms.color, color.r * o, color.g * o, color.b * o);
     }
     blit(dye.write);
     dye.swap();

@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <div v-if="loading" class="loading-overlay d-flex align-center justify-center">
-      <v-progress-circular indeterminate color="#a855f7" size="64" width="6"></v-progress-circular>
+      <v-progress-circular indeterminate color="primary" size="64" width="6" />
     </div>
     <div v-else>
       <CursorTrail />
@@ -11,6 +11,7 @@
     </div>
   </v-app>
 </template>
+
 <script setup>
 import { ref, onMounted } from 'vue'
 import Header from "@/components/layout/Header.vue";
@@ -20,7 +21,6 @@ import CursorTrail from "@/components/layout/CursorTrail.vue";
 const loading = ref(true)
 
 onMounted(() => {
-  // Simulate page loading
   setTimeout(() => {
     loading.value = false
   }, 1000)
