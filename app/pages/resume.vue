@@ -64,40 +64,141 @@
                 </div>
             </div>
 
-            <div class="section-wrapper">
-                <div class="d-flex align-center mb-6">
-                    <v-icon color="primary" size="24" class="mr-3">mdi-school</v-icon>
-                    <h2 class="section-title text-white font-weight-bold">Education</h2>
-                </div>
-                <v-row>
-                    <v-col v-for="edu in education" :key="edu.degree" cols="12">
-                        <v-card class="education-card" elevation="0" rounded="xl">
-                            <v-card-text class="pa-5">
-                                <span class="text-caption text-medium-emphasis d-block mb-2">{{ edu.period }}</span>
-                                <h3 class="text-h6 text-white font-weight-bold mb-2">{{ edu.degree }}</h3>
-                                <p class="text-body-2 text-medium-emphasis mb-3">{{ edu.institution }}</p>
-                                <ul v-if="edu.highlights?.length" class="timeline-highlights mb-0">
-                                    <li
-                                        v-for="(item, j) in edu.highlights"
-                                        :key="j"
-                                        class="text-body-2 text-medium-emphasis"
-                                    >
-                                        {{ item }}
-                                    </li>
-                                </ul>
-                            </v-card-text>
-                        </v-card>
-                    </v-col>
-                </v-row>
-            </div>
+            <v-row class="resume-cards">
+                <v-col cols="12" md="6">
+                    <v-card class="resume-card h-100" elevation="0" rounded="xl">
+                        <v-card-text class="pa-6">
+                            <div class="d-flex align-center mb-5">
+                                <v-icon color="primary" size="26" class="mr-3">mdi-code-tags</v-icon>
+                                <h2 class="card-title text-white font-weight-bold">Technical Skills</h2>
+                            </div>
+                            <v-row>
+                                <v-col
+                                    v-for="group in technicalSkills"
+                                    :key="group.title"
+                                    cols="12"
+                                    sm="6"
+                                >
+                                    <h3 class="skill-group-title text-primary mb-2">{{ group.title }}</h3>
+                                    <ul class="card-list">
+                                        <li
+                                            v-for="item in group.items"
+                                            :key="item"
+                                            class="text-body-2 text-medium-emphasis"
+                                        >
+                                            {{ item }}
+                                        </li>
+                                    </ul>
+                                </v-col>
+                            </v-row>
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+
+                <v-col cols="12" md="6">
+                    <v-card class="resume-card h-100" elevation="0" rounded="xl">
+                        <v-card-text class="pa-6">
+                            <div class="d-flex align-center mb-5">
+                                <v-icon color="primary" size="26" class="mr-3">mdi-account-heart-outline</v-icon>
+                                <h2 class="card-title text-white font-weight-bold">Soft Skills</h2>
+                            </div>
+                            <div class="d-flex flex-column ga-4">
+                                <div
+                                    v-for="skill in softSkills"
+                                    :key="skill.name"
+                                    class="skill-progress"
+                                >
+                                    <div class="d-flex justify-space-between mb-2">
+                                        <span class="text-body-2 text-white">{{ skill.name }}</span>
+                                        <span class="text-caption text-medium-emphasis">{{ skill.value }}%</span>
+                                    </div>
+                                    <v-progress-linear
+                                        :model-value="skill.value"
+                                        color="primary"
+                                        bg-color="surface"
+                                        height="8"
+                                        rounded
+                                    />
+                                </div>
+                            </div>
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+
+                <v-col cols="12" md="6">
+                    <v-card class="resume-card h-100" elevation="0" rounded="xl">
+                        <v-card-text class="pa-6">
+                            <div class="d-flex align-center mb-5">
+                                <v-icon color="primary" size="26" class="mr-3">mdi-translate</v-icon>
+                                <h2 class="card-title text-white font-weight-bold">Languages</h2>
+                            </div>
+                            <div class="d-flex flex-column ga-5">
+                                <div
+                                    v-for="language in languages"
+                                    :key="language.name"
+                                    class="language-item"
+                                >
+                                    <div class="d-flex justify-space-between align-start mb-2">
+                                        <div>
+                                            <h3 class="text-white text-body-1 font-weight-bold">{{ language.name }}</h3>
+                                            <p class="text-caption text-medium-emphasis mb-0">{{ language.level }}</p>
+                                        </div>
+                                        <span class="text-caption text-primary">{{ language.value }}%</span>
+                                    </div>
+                                    <v-progress-linear
+                                        :model-value="language.value"
+                                        color="primary"
+                                        bg-color="surface"
+                                        height="8"
+                                        rounded
+                                    />
+                                </div>
+                            </div>
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+
+                <v-col cols="12" md="6">
+                    <v-card class="resume-card mbti-card h-100" elevation="0" rounded="xl">
+                        <v-card-text class="pa-6">
+                            <div class="d-flex align-center mb-5">
+                                <v-icon color="primary" size="26" class="mr-3">mdi-account-outline</v-icon>
+                                <h2 class="card-title text-white font-weight-bold">MBTI Personality Type</h2>
+                            </div>
+                            <div class="d-flex flex-column flex-sm-row align-center ga-5">
+                                <v-avatar class="mbti-avatar" size="112">
+                                    <v-icon color="primary" size="70">mdi-account-tie</v-icon>
+                                </v-avatar>
+                                <div>
+                                    <p class="mbti-type text-primary font-weight-bold mb-1">{{ mbti.type }}</p>
+                                    <h3 class="text-white text-h6 font-weight-bold mb-3">{{ mbti.title }}</h3>
+                                    <p class="text-body-2 text-medium-emphasis mb-4">{{ mbti.description }}</p>
+                                    <div class="d-flex flex-wrap ga-2">
+                                        <v-chip
+                                            v-for="trait in mbti.traits"
+                                            :key="trait"
+                                            color="primary"
+                                            variant="outlined"
+                                            size="small"
+                                            rounded="lg"
+                                        >
+                                            {{ trait }}
+                                        </v-chip>
+                                    </div>
+                                </div>
+                            </div>
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+            </v-row>
         </div>
     </Transition>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
-const showPage = ref(false)
+const showPage = ref(true)
 
 const careerHistory = ref([
     {
@@ -140,23 +241,47 @@ const skills = ref([
     'Cursor AI',
 ])
 
-const education = ref([
+const technicalSkills = ref([
     {
-        period: '2020 — 2024',
-        degree: 'B.Sc. in Computer Engineering (Software)',
-        institution: 'University of Yazd · Yazd, Iran',
-        highlights: [
-            'Member of the Scientific Association of the Faculty of Computer Engineering.',
-            'Teaching Assistant for Data Structures course for three academic semesters.',
-        ],
+        title: 'Programming',
+        items: ['JavaScript (ES6+)', 'TypeScript (Basic)', 'HTML5 / CSS3'],
+    },
+    {
+        title: 'Frontend',
+        items: ['Vue.js', 'Nuxt.js', 'Vuetify', 'Responsive Design'],
+    },
+    {
+        title: 'Tools & Platforms',
+        items: ['Git / GitHub', 'WordPress', 'REST APIs', 'Canva'],
+    },
+    {
+        title: 'AI & Productivity',
+        items: ['Cursor AI', 'ChatGPT', 'AI-Assisted Debugging', 'Prompt Engineering'],
     },
 ])
 
-onMounted(() => {
-    setTimeout(() => {
-        showPage.value = true
-    }, 1000)
+const softSkills = ref([
+    { name: 'Problem Solving', value: 85 },
+    { name: 'Communication', value: 78 },
+    { name: 'Team Collaboration', value: 88 },
+    { name: 'Time Management', value: 82 },
+    { name: 'Adaptability', value: 84 },
+    { name: 'Attention to Detail', value: 86 },
+])
+
+const languages = ref([
+    { name: 'Persian (Farsi)', level: 'Native', value: 100 },
+    { name: 'English', level: 'Intermediate', value: 50 },
+])
+
+const mbti = ref({
+    type: 'ESTJ',
+    title: 'The Executive',
+    description:
+        'Organized, practical, and decisive. I value clear structure, reliable execution, team accountability, and turning plans into measurable progress.',
+    traits: ['Organized', 'Decisive', 'Practical', 'Responsible', 'Leadership', 'Structured Planning'],
 })
+
 </script>
 
 <style scoped>
@@ -290,19 +415,87 @@ onMounted(() => {
     }
 }
 
-.education-card {
+.resume-cards {
+    margin-bottom: 4rem;
+}
+
+.resume-card {
     background-color: rgba(20, 20, 20, 0.8) !important;
     border: 1px solid rgba(var(--v-theme-primary), 0.3) !important;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
     transition: all 0.3s ease;
-    min-height: 160px;
+    overflow: hidden;
 }
 
-.education-card:hover {
+.resume-card:hover {
     transform: translateY(-8px);
     border-color: rgba(var(--v-theme-primary), 0.6) !important;
     box-shadow: 0 0 30px rgba(var(--v-theme-primary), 0.4), rgba(100, 100, 111, 0.35) 0px 10px 40px 0px !important;
     background-color: rgba(25, 25, 25, 0.9) !important;
+}
+
+.card-title {
+    font-size: 1.25rem;
+}
+
+.skill-group-title {
+    font-size: 0.95rem;
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.card-list li {
+    padding-left: 1rem;
+    position: relative;
+}
+
+.card-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: rgb(var(--v-theme-primary));
+}
+
+.skill-progress :deep(.v-progress-linear),
+.language-item :deep(.v-progress-linear) {
+    box-shadow: 0 0 18px rgba(var(--v-theme-primary), 0.25);
+}
+
+.mbti-card {
+    position: relative;
+}
+
+.mbti-card::before {
+    content: '';
+    position: absolute;
+    inset: auto auto -40px -40px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--v-theme-primary), 0.25), transparent 70%);
+}
+
+.mbti-avatar {
+    border: 1px solid rgba(var(--v-theme-primary), 0.5);
+    background-color: rgba(var(--v-theme-primary), 0.08);
+    box-shadow: 0 0 35px rgba(var(--v-theme-primary), 0.3);
+    flex: 0 0 auto;
+}
+
+.mbti-type {
+    font-size: 2rem;
+    line-height: 1;
 }
 
 @media (max-width: 1400px) {

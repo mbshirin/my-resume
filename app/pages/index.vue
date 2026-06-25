@@ -33,7 +33,7 @@
         </div>
         <div class="desc-col">
           <span class="desc-text text-medium-emphasis">
-            I'm Shirin Mohebbi, a Frontend Developer passionate about building modern and responsive web applications.
+            I'm Shirin Mohebi, a Frontend Developer passionate about building modern and responsive web applications.
 
             I specialize in Vue.js and Nuxt.js, focusing on clean code, intuitive user experiences, and interfaces that
             bring ideas to life.
@@ -71,15 +71,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
-const showPage = ref(false)
-
-onMounted(() => {
-  setTimeout(() => {
-    showPage.value = true
-  }, 1000)
-})
+const showPage = ref(true)
 </script>
 
 <style scoped>
@@ -241,9 +235,9 @@ onMounted(() => {
 
 .card:hover {
   transform: translateY(-8px);
-  border-color: rgba(var(--v-theme-primary), 0.6) !important;
-  box-shadow: 0 0 30px rgba(var(--v-theme-primary), 0.4), rgba(100, 100, 111, 0.35) 0px 10px 40px 0px;
-  background-color: rgba(25, 25, 25, 0.9) !important;
+    border-color: rgba(var(--v-theme-primary), 0.6) !important;
+    box-shadow: 0 0 30px rgba(var(--v-theme-primary), 0.4), rgba(100, 100, 111, 0.35) 0px 10px 40px 0px !important;
+    background-color: rgba(25, 25, 25, 0.9) !important;
 }
 
 .card-title {
@@ -320,8 +314,12 @@ onMounted(() => {
   }
 
   .custom-btn {
-    width: 100%;
-    max-width: 280px;
+    width: fit-content;
+    min-width: 150px;
+    max-width: 220px;
+    min-height: 40px;
+    padding-inline: 1rem;
+    font-size: 0.8rem;
   }
 
   .ocean-image {

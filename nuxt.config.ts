@@ -22,6 +22,16 @@ export default defineNuxtConfig({
     define: {
       "process.env.DEBUG": false,
     },
+    optimizeDeps: {
+      include: ["@vue/devtools-core", "@vue/devtools-kit"],
+    },
+  },
+
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
   },
 
   modules: ["@nuxtjs/tailwindcss"],

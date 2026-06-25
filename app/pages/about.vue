@@ -74,15 +74,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
-const showPage = ref(false)
-
-onMounted(() => {
-    setTimeout(() => {
-        showPage.value = true
-    }, 1000)
-})
+const showPage = ref(true)
 </script>
 
 <style scoped>
@@ -226,7 +220,7 @@ onMounted(() => {
 .info-box:hover {
     transform: translateY(-8px);
     border-color: rgba(var(--v-theme-primary), 0.6) !important;
-    box-shadow: 0 0 30px rgba(var(--v-theme-primary), 0.4), rgba(100, 100, 111, 0.35) 0px 10px 40px 0px;
+    box-shadow: 0 0 30px rgba(var(--v-theme-primary), 0.4), rgba(100, 100, 111, 0.35) 0px 10px 40px 0px !important;
     background-color: rgba(25, 25, 25, 0.9) !important;
 }
 

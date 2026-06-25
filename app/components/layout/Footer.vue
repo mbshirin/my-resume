@@ -3,7 +3,7 @@
     <div class="footer-content d-flex flex-column flex-sm-row align-center justify-space-between">
       <div class="footer-left d-flex flex-column text-center text-sm-start">
         <span class="footer-text text-medium-emphasis">
-          Designed & Developed by Shirin Mohebbi
+          Designed & Developed by Shirin Mohebi
         </span>
         <span class="copyright text-disabled">© 2026 All rights reserved.</span>
       </div>
